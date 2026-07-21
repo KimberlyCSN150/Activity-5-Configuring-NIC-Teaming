@@ -14,19 +14,20 @@ switchport mode trunk
 Switch-independent mode note (per Microsoft docs): with address hash or dynamic load distribution, outbound traffic uses the MAC address of the primary team member — the first NIC to bind after team creation or a reboot. Because that can change non-deterministically across reboots, the team's effective MAC address can also change.
 
 Steps
- Shut down the domain controller VM and add 2 additional network adapters (attached to the Internal Network)
- Boot the domain controller
- Open Network Connections to confirm all 3 NICs are visible
- Record the MAC address of each adapter (Status → Details)
+
+Shut down the domain controller VM and add 2 additional network adapters (attached to the Internal Network)
+Boot the domain controller
+Open Network Connections to confirm all 3 NICs are visible
+Record the MAC address of each adapter (Status → Details)
 Adapter 1 MAC: __________
 Adapter 2 MAC: __________
 Adapter 3 MAC: __________
- Enable NIC Teaming from Server Manager
- Create a new team, name it Team 1, and include all 3 adapters
- Set Load Balancing Mode to Address Hash (Additional Properties)
- Note which adapter activated first (becomes the primary)
- In Network Connections, confirm the Team NIC's MAC address matches the primary adapter
- Log off
+Enable NIC Teaming from Server Manager
+Create a new team, name it Team 1, and include all 3 adapters
+Set Load Balancing Mode to Address Hash (Additional Properties)
+Note which adapter activated first (becomes the primary)
+In Network Connections, confirm the Team NIC's MAC address matches the primary adapter
+Log off
 
 Question to answer:
 
